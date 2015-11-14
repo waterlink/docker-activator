@@ -8,10 +8,10 @@ Add to your `bashrc` or `zshrc`:
 
 ```bash
 # Tailor `-u $UID:GID` directive if it does not work for you
-alias _devdocker="docker run -it --rm $(pwd):$(pwd) -w $(pwd) -e HOME=/tmp -u $UID:GID"
+alias _devdocker="docker run -it --rm -v \$(pwd):\$(pwd) -w \$(pwd) -e HOME=/tmp -u $UID:$GID"
 
 alias activator="_devdocker waterlink/activator activator"
-alias activator-ui="_devdocker -p 8000:8000 waterlink/activator activator ui"
+alias activator-ui="rm \?/.activator/*/.{currentpid,lock}; _devdocker -p 8000:8000 waterlink/activator activator ui -Dhttp.address=0.0.0.0"
 
 alias sbt="_devdocker waterlink/activator sbt"
 # .. an so on ..
@@ -24,3 +24,7 @@ activator-ui # runs activator ui on localhost:8000 (or $(docker-machine ip dev):
 activator new <template>  # new project
 # .. and so on ..
 ```
+
+## License
+
+MIT

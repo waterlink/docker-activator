@@ -1,9 +1,5 @@
-MAINTAINER Oleksii Fedorov <waterlink000@gmail.com>
-
 FROM flurdy/activator
 
-# Useful to force update
-ENV IMAGE_VERSION=0.1.0
+MAINTAINER Oleksii Fedorov <waterlink000@gmail.com>
 
-# Downloads all the requirements
-RUN activator --help
+EXPOSE 8888
